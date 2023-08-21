@@ -1,0 +1,10 @@
+<ExampleEntities>
+  <Example>
+    <Attributes>
+      <Attribute default="Default value for ExampleLabel attribute" check="String" primary="True">ExampleLabel</Attribute>
+    </Attributes>
+    <Icon>
+      Default.svg
+    </Icon>
+  </Example>
+</ExampleEntities>

@@ -1,0 +1,18 @@
+<Reddit>
+  <Reddit_Subreddit>
+    <Attributes>
+      <Attribute default="Subreddit" check="String" primary="True">Subreddit</Attribute>
+    </Attributes>
+    <Icon>
+      Default.svg
+    </Icon>
+  </Reddit_Subreddit>
+  <Reddit_Comment>
+    <Attributes>
+      <Attribute default="Comment" check="String" primary="True">Comment</Attribute>
+    </Attributes>
+    <Icon>
+      Default.svg
+    </Icon>
+  </Reddit_Comment>
+</Reddit>

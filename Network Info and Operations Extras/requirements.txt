@@ -1,0 +1,4 @@
+scapy
+paramiko
+requests
+bs4

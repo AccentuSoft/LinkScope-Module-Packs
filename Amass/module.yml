@@ -1,0 +1,4 @@
+author: AccentuSoft
+description: >
+  Run OWASP Amass and import the results.
+version: 1.0.0
