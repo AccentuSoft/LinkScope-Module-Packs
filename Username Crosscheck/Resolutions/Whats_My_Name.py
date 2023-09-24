@@ -63,6 +63,7 @@ class Whats_My_Name:
                         account_missing_string = site['m_string']
                         account_missing_code = site['m_code']
                         requires_javascript = site.get('requires_javascript', False)
+                        site_headers = headers | site.get('headers', {})
                         if site.get('valid', True):
                             account_existence_string = re.escape(account_existence_string)
                             account_existence_string = re.compile(account_existence_string)
@@ -86,12 +87,12 @@ class Whats_My_Name:
                                                         'Notes': ''}}])
                                         break
                             elif post_body := site.get('post_body'):
-                                futures[session.post(original_uri, data=post_body, headers=headers,
+                                futures[session.post(original_uri, data=post_body, headers=site_headers,
                                                      timeout=10, allow_redirects=False)] = \
                                     (uid, account_existence_code, account_existence_string,
                                      account_missing_string, account_missing_code)
                             else:
-                                futures[session.get(original_uri, headers=headers,
+                                futures[session.get(original_uri, headers=site_headers,
                                                     timeout=10, allow_redirects=False)] = \
                                     (uid, account_existence_code, account_existence_string,
                                      account_missing_string, account_missing_code)
