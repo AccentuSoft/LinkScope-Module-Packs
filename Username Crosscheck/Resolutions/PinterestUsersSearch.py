@@ -13,6 +13,7 @@ class PinterestUsersSearch:
     def resolution(self, entityJsonList, parameters):
         import requests
         import contextlib
+        from pathlib import Path
         from playwright.sync_api import sync_playwright, Error
         from time import sleep
         from bs4 import BeautifulSoup
@@ -20,12 +21,14 @@ class PinterestUsersSearch:
         from PySide6.QtGui import QImage
         from random import random
 
+        playwrightPath = Path(parameters['Playwright Firefox'])
+
         baseURL = "https://www.pinterest.com/search/users/?q="
 
         returnResults = []
 
         with sync_playwright() as p:
-            browser = p.firefox.launch()
+            browser = p.firefox.launch(executable_path=playwrightPath)
             context = browser.new_context(
                 viewport={'width': 1920, 'height': 1080}
             )

@@ -23,6 +23,8 @@ class DoTheyExist:
         from playwright.sync_api import sync_playwright, Error
         from time import sleep
 
+        playwrightPath = Path(parameters['Playwright Firefox'])
+
         directory = Path(__file__).parent.resolve()
         with open(directory / 'js_web_accounts_json.json') as web_accounts_list:
             file = json.load(web_accounts_list)
@@ -31,7 +33,7 @@ class DoTheyExist:
         returnResults = []
 
         with sync_playwright() as p:
-            browser = p.firefox.launch(headless=True)
+            browser = p.firefox.launch(executable_path=playwrightPath, headless=True)
             context = browser.new_context(
                 viewport={'width': 1920, 'height': 1080}
             )

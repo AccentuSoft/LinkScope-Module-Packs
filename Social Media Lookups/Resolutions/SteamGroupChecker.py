@@ -20,7 +20,10 @@ class SteamGroupChecker:
         from bs4 import BeautifulSoup
         from PySide6.QtCore import QByteArray, QBuffer, QIODevice, QSize
         from PySide6.QtGui import QImage
+        from pathlib import Path
         import requests
+
+        playwrightPath = Path(parameters['Playwright Chromium'])
 
         groupSearchURL = 'https://steamcommunity.com/search/groups/#text='
 
@@ -33,7 +36,7 @@ class SteamGroupChecker:
             return []
 
         with sync_playwright() as p:
-            browser = p.chromium.launch()
+            browser = p.chromium.launch(executable_path=playwrightPath)
             context = browser.new_context(
                 viewport={'width': 1920, 'height': 1080},
                 user_agent='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) '

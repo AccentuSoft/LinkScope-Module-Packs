@@ -26,6 +26,7 @@ class Whats_My_Name:
         import urllib3
 
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+        playwrightPath = Path(parameters['Playwright Firefox'])
 
         headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0',
@@ -39,7 +40,7 @@ class Whats_My_Name:
             file = json.load(web_accounts_list)
 
         with sync_playwright() as p:
-            browser = p.firefox.launch()
+            browser = p.firefox.launch(executable_path=playwrightPath)
             context = browser.new_context(
                 viewport={'width': 1920, 'height': 1080}
             )
