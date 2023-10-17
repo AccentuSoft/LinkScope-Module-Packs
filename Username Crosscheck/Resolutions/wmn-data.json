@@ -668,6 +668,16 @@
         "cat" : "blog"
        },
        {
+        "name" : "Blue Sky",
+        "uri_check" : "https://bsky.app/profile/{account}",
+        "e_code" : 200,
+        "e_string" : "on Bluesky",
+        "m_code" : 200,
+        "m_string" : "<p id=\"bsky_did\"></p>",
+        "known" : ["bsky.app", "safety.bsky.app"],
+        "cat" : "social"
+       },
+       {
         "name" : "BodyBuilding.com",
         "uri_check" : "http://api.bodybuilding.com/api-proxy/bbc/get?slug={account}",
         "uri_pretty" : "http://bodyspace.bodybuilding.com/{account}/",
@@ -1891,7 +1901,7 @@
         "uri_check" : "https://foursquare.com/{account}",
         "e_code" : 200,
         "e_string" : "on Foursquare</title>",
-        "m_string" : "Foursquare - Independent Location Data Platform",
+        "m_string" : "302 Found</title>",
         "m_code" : 302,
         "known" : ["john", "ncyp23"],
         "cat" : "social"
@@ -2104,10 +2114,13 @@
         "uri_check" : "https://github.com/{account}",
         "e_code" : 200,
         "e_string" : "p-nickname vcard-username d-block",
-        "m_string" : "<title>Page not found ",
+        "m_string" : "Not Found",
         "m_code" : 404,
         "known" : ["test", "WebBreacher"],
-        "cat" : "coding"
+        "cat" : "coding",
+        "headers": {
+            "accept": "text/html"
+        }
        },
        {
         "name" : "GitHubPlus",
@@ -2124,7 +2137,7 @@
         "uri_check" : "https://gitlab.com/{account}",
         "e_code" : 200,
         "e_string" : "Member since",
-        "m_string" : "GitLab.com offers free unlimited",
+        "m_string" : "You are being <a href=\"https://gitlab.com/users/sign_in\">redirected</a>",
         "m_code" : 302,
         "known" : ["skennedy", "KennBro", "alex", "bob"],
         "cat" : "coding"
@@ -5528,6 +5541,16 @@
         "m_code" : 404,
         "known" : ["realdonaldtrump", "ScottAdamsTruth"],
         "cat" : "social"
+       },
+       {
+        "name" : "TryHackMe",
+        "uri_check" : "https://tryhackme.com/api/user/exist/{account}",
+        "e_code" : 200,
+        "e_string" : "true",
+        "m_string" : "false",
+        "m_code" : 200,
+        "known" : ["user", "goyalyuval15"],
+        "cat" : "tech"
        },
        {
         "name" : "Tryst",
