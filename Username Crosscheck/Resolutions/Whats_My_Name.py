@@ -36,7 +36,7 @@ class Whats_My_Name:
         return_result = []
 
         directory = Path(__file__).parent.resolve()
-        with open(directory / 'wmn-data.json') as web_accounts_list:
+        with open(directory / 'wmn-data.json', encoding='utf-8') as web_accounts_list:
             file = json.load(web_accounts_list)
 
         with sync_playwright() as p:
