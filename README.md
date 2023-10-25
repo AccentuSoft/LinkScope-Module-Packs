@@ -16,7 +16,7 @@ considered to be one distinct module.
 
 The `Example Module` folder demonstrates the expected structure of a module.
 It is part of the 'Example Module Pack' module pack, which is defined in
-`examplepack.yml`.
+`ExamplePack.yml`.
 
 ### The Module Pack YAML file
 
